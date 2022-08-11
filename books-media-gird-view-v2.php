@@ -153,7 +153,7 @@ include_once 'db/db.php';
                                         </li>
                                         <li><a href="books-media-gird-view-v2.php?type=HR&page=1">Human Resource</a>
                                         </li>
-                                        <li><a href="books-media-gird-view-v2.php?type=Marketing&page=1">Marketing</a>
+                                        <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
                                         </li>
                                         <li><a href="books-media-gird-view-v2.php?type=Accounting&page=1">Accounting</a>
                                         </li>

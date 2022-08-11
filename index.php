@@ -143,7 +143,7 @@ include_once 'db/db.php';
                                         </li>
                                         <li><a href="books-media-gird-view-v2.php?type=HR&page=1">Human Resource</a>
                                         </li>
-                                        <li><a href="books-media-gird-view-v2.php?type=Marketing&page=1">Marketing</a>
+                                        <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
                                         </li>
                                         <li><a href="books-media-gird-view-v2.php?type=Accounting&page=1">Accounting</a>
                                         </li>
@@ -429,7 +429,7 @@ include_once 'db/db.php';
             <div class="filter btn" data-filter=".Nursing">Nursing</div>
             <div class="filter btn" data-filter=".Acupuncture">Acupuncture</div>
             <div class="filter btn" data-filter=".HR">Human resources</div>
-            <div class="filter btn" data-filter=".Marketing">Marketing</div>
+            <div class="filter btn" data-filter=".Marketing">Management</div>
             <div class="filter btn" data-filter=".Accounting">Accounting</div>
             <div class="filter btn" data-filter=".IT">IT</div>
             <div class="filter btn" data-filter=".Psychology">Psychology</div>
@@ -593,7 +593,7 @@ include_once 'db/db.php';
             ?>
 
             <?php
-            $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and department = 'Marketing' and status = 'published' order by id DESC LIMIT 2");
+            $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and department = 'Management' and status = 'published' order by id DESC LIMIT 2");
             $select->execute();
             while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
                 extract($row)
@@ -830,7 +830,7 @@ include_once 'db/db.php';
                         <a href="#" class="bg-red">
                             <div class="title">
                                 <i class="red"></i>
-                                <h3>Marketing</h3>
+                                <h3>Management</h3>
                             </div>
                         </a>
                     </li>
@@ -1000,7 +1000,7 @@ include_once 'db/db.php';
                 <div class="tab-content">
                     <article>
                         <?php
-                        $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department = 'Marketing'  order by id DESC LIMIT 1");
+                        $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department = 'Management'  order by id DESC LIMIT 1");
                         $select->execute();
                         while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
                             extract($row)
@@ -1778,5 +1778,3 @@ include_once 'db/db.php';
 
 
 </html>
-
-
