@@ -149,12 +149,10 @@
                                         <li>
                                             <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
                                         </li>
-                                        <li><a href="books-media-gird-view-v2.php?type=HR&page=1">Human Resource</a>
-                                        </li>
+                                        
                                         <li><a href="books-media-gird-view-v2.php?type=Marketing&page=1">Marketing</a>
                                         </li>
-                                        <li><a href="books-media-gird-view-v2.php?type=Accounting&page=1">Accounting</a>
-                                        </li>
+                                        
                                         <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
                                         <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                         </li>
