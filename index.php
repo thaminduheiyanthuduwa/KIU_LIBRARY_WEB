@@ -832,7 +832,7 @@ include_once 'db/db.php';
                         <a href="#" class="bg-blue">
                             <div class="title">
                                 <i class="blue"></i>
-                                <h3>Human resource</h3>
+                                <h3>Psychology</h3>
                             </div>
                         </a>
                     </li>
@@ -848,7 +848,7 @@ include_once 'db/db.php';
                         <a href="#" class="bg-violet">
                             <div class="title">
                                 <i class="violet"></i>
-                                <h3>Accounting</h3>
+                                <h3>Acupuncture</h3>
                             </div>
                         </a>
                     </li>
