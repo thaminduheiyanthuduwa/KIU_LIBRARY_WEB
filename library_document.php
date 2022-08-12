@@ -181,45 +181,29 @@ include_once 'db/db.php';
                                 <a href="#" class="close"></a>
                             </li>
                             <li>
-                                <a href="index-2.html">Home</a>
+                                <a href="index.php">Home</a>
+                            </li>
+                            <li>
+                                <a href="databases.php">Databases</a>
+                            </li>
+                            <li>
+                                <a href="books-media-gird-view-v2.php?type=all&page=1">E Resources</a>
                                 <ul>
-                                    <li><a href="index-2.html">Home V1</a></li>
-                                    <li><a href="home-v2.html">Home V2</a></li>
-                                    <li><a href="home-v3.html">Home V3</a></li>
+                                    <li><a href="books-media-gird-view-v2.php?type=BMS&page=1">BMS</a></li>
+                                    <li><a href="books-media-gird-view-v2.php?type=Nursing&page=1">Nursing</a></li>
+                                    <li>
+                                        <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
+                                    </li>
+
+                                    <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
+                                    </li>
+
+                                    <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
+                                    <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                 </ul>
                             </li>
                             <li>
-                                <a href="books-media-list-view.html">Books &amp; Media</a>
-                                <ul>
-                                    <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                    <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                    <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                    <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                    <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="news-events-list-view.html">News &amp; Events</a>
-                                <ul>
-                                    <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                                    <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="signin.html">Signin/Register</a></li>
-                                    <li><a href="404.html">404/Error</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="blog.html">Blog</a>
-                                <ul>
-                                    <li><a href="blog.html">Blog Grid View</a></li>
-                                    <li><a href="blog-detail.html">Blog Detail</a></li>
-                                </ul>
+                                <a href="library_document.php">Library Documents</a>
                             </li>
                             <li><a href="services.php">Services</a></li>
                             <li><a href="contact.php">Contact</a></li>
