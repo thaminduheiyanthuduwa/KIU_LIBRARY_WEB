@@ -277,38 +277,25 @@ include_once 'db/db.php';
     <div class="container">
         <div class="filter-box">
             <h3>What are you looking for at the library?</h3>
-            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
-                <div class="col-md-4 col-sm-6">
+            <form action="books-media-gird-view-v2.php?type=all&page=1" method="get">
+                <div class="col-md-6 col-sm-6">
                     <div class="form-group">
-                        <label class="sr-only" for="keywords">Search by Keyword</label>
-                        <input class="form-control" placeholder="Search by Keyword" id="keywords" name="keywords"
+                        <label class="sr-only" for="keywords">Search by Anything</label>
+                        <input class="form-control" placeholder="Search by Anything" id="search" name="search"
                                type="text">
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="form-group">
-                        <select name="catalog" id="catalog" class="form-control">
-                            <option>Search the Catalog</option>
-                        </select>
-                    </div>
-                </div>
+
                 <div class="col-md-3 col-sm-6">
                     <div class="form-group">
                         <select name="category" id="category" class="form-control">
-                            <option>All Categories</option>
+                            <option>All</option>
                             <option>Nursing</option>
                             <option>BMS</option>
-                            <option>Human Resource</option>
-                            <option>Marketing</option>
-                            <option>Accounting</option>
+                            <option>Management</option>
+                            <option>Acupuncture</option>
                             <option>IT</option>
                             <option>Psychology</option>
-                            <option>Library Documents</option>
-                            <option>Database</option>
-                            <option>Library Concerns</option>
-                            <option></option>
-                            <option>Category 04</option>
-                            <option>Category 05</option>
                         </select>
                     </div>
                 </div>

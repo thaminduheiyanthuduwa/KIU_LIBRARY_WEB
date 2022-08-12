@@ -1,5 +1,20 @@
 <?php
 include_once 'db/db.php';
+
+if (empty($_GET['type'])) {
+    $_GET['type'] = 'all';
+}
+if (empty($_GET['page'])) {
+    $_GET['page'] = '1';
+}
+if (empty($_GET['search'])) {
+    $_GET['search'] = '';
+}
+if (empty($_GET['category']) || $_GET['category'] == 'All') {
+    $_GET['category'] = '';
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -151,10 +166,10 @@ include_once 'db/db.php';
                                         <li>
                                             <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
                                         <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                         </li>
@@ -163,7 +178,8 @@ include_once 'db/db.php';
 
 
                                 <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="library_document.php">Library
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled"
+                                       href="library_document.php">Library
                                         Documents</a>
                                 </li>
                                 <li><a href="services.php">Services</a></li>
@@ -220,6 +236,9 @@ include_once 'db/db.php';
 <section class="page-banner services-banner">
     <div class="container">
         <div class="banner-header">
+            <br>
+            <br>
+            <br>
             <h2>Books & Media Listing <?php
                 if ($_GET['type'] == 'all')
                     echo '';
@@ -249,17 +268,27 @@ include_once 'db/db.php';
                     <section class="search-filters">
                         <div class="filter-box">
                             <h3>What are you looking for at the library?</h3>
-                            <form action="http://libraria.demo.presstigers.com/index.html" method="get">
-                                <div class="col-md-4 col-sm-6">
+                            <form action="books-media-gird-view-v2.php?type=all&page=1" method="get">
+                                <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Search by Title" id="keywords"
-                                               name="keywords" type="text">
+                                        <label class="sr-only" for="keywords">Search by Anything</label>
+                                        <input class="form-control" placeholder="<?php echo ($_GET['search'] == '') ? 'Search by Anything' : $_GET['search']; ?>" id="search"
+                                               name="search"
+                                               type="text">
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-6">
+
+                                <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Search by Auth" id="keywords"
-                                               name="keywords" type="text">
+                                        <select name="category" id="category" class="form-control">
+                                            <option><?php echo ($_GET['category'] == '') ? 'All' : $_GET['category']; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'Nursing') ? 'All' : 'Nursing'; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'BMS') ? 'All' : 'BMS'; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'Management') ? 'All' : 'Management'; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'Acupuncture') ? 'All' : 'Acupuncture'; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'IT') ? 'All' : 'IT'; ?></option>
+                                            <option><?php echo ($_GET['category'] == 'Psychology') ? 'All' : 'Psychology'; ?></option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-sm-6">
@@ -273,62 +302,14 @@ include_once 'db/db.php';
                     </section>
                     <!-- End: Search Section -->
 
-                    <div class="filter-options margin-list">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-3">
-                                <select name="orderby">
-                                    <option selected="selected">Sort by Title</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by rating</option>
-                                    <option>Sort by newness</option>
-                                    <option>Sort by price</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <select name="orderby">
-                                    <option selected="selected">Sort by Author</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by rating</option>
-                                    <option>Sort by newness</option>
-                                    <option>Sort by price</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <select name="orderby">
-                                    <option selected="selected">Language</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by rating</option>
-                                    <option>Sort by newness</option>
-                                    <option>Sort by price</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 col-sm-3">
-                                <select name="orderby">
-                                    <option selected="selected">Publishing Date</option>
-                                    <option>Sort by popularity</option>
-                                    <option>Sort by rating</option>
-                                    <option>Sort by newness</option>
-                                    <option>Sort by price</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 col-sm-12 pull-right">
-                                <div class="filter-toggle">
-                                    <a href="#" class="active"><i
-                                                class="glyphicon glyphicon-th-large"></i></a>
-                                    <a href="books-media-list-view.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>"><i
-                                                class="glyphicon glyphicon-th-list"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="booksmedia-fullwidth">
                         <ul>
 
                             <?php
                             if ($_GET['type'] == 'all')
-                                $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and status = 'published'  order by id DESC LIMIT ".(($_GET['page'] - 1) * 20).",".((($_GET['page'] - 1) * 20) + 20)."");
+                                $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and department like '%" . $_GET['category'] . "%'  order by id DESC LIMIT " . (($_GET['page'] - 1) * 20) . "," . ((($_GET['page'] - 1) * 20) + 20) . "");
                             else
-                                $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department = '" . $_GET['type'] . "'  order by id DESC LIMIT ".(($_GET['page'] - 1) * 20).",".((($_GET['page'] - 1) * 20) + 20)."");
+                                $select = $pdo->prepare("SELECT * FROM `kiu_eresource` WHERE is_active = 1 and department like '%" . $_GET['category'] . "%' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and status = 'published' and department = '" . $_GET['type'] . "'  order by id DESC LIMIT " . (($_GET['page'] - 1) * 20) . "," . ((($_GET['page'] - 1) * 20) + 20) . "");
                             $select->execute();
                             while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
                                 extract($row)
@@ -348,6 +329,7 @@ include_once 'db/db.php';
                                                     <a href="books-media-detail-v2.php?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
                                                 </h4>
                                                 <p><strong>Author:</strong> <?php echo $row['author']; ?></p>
+                                                <p><strong>Department:</strong> <?php echo $row['department']; ?></p>
                                             </header>
                                             <p><?php echo $row['description']; ?></p>
                                         </figcaption>
@@ -382,11 +364,10 @@ include_once 'db/db.php';
 
                             for ($x = 1; $x <= $dev; $x++) {
 
-                                if ($x == $_GET['page']){
-                                    echo '<span class="page-numbers current" ><a href="books-media-gird-view-v2.php?type='.$_GET['type'].'&page='.$x.'">'.$x.'</a></span>';
-                                }
-                                else {
-                                    echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type='.$_GET['type'].'&page='.$x.'">'.$x.'</a></span>';
+                                if ($x == $_GET['page']) {
+                                    echo '<span class="page-numbers current" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '">' . $x . '</a></span>';
+                                } else {
+                                    echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '">' . $x . '</a></span>';
                                 }
 
                                 ?>
@@ -593,7 +574,6 @@ include_once 'db/db.php';
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>
-
 
 
 </html>
