@@ -141,10 +141,10 @@ include_once 'db/db.php';
                                         <li>
                                             <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
                                         <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                         </li>
@@ -153,7 +153,8 @@ include_once 'db/db.php';
                                 ``
 
                                 <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="library_document.php">Library
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled"
+                                       href="library_document.php">Library
                                         Documents</a>
                                 </li>
                                 <li><a href="services.php">Services</a></li>
@@ -374,7 +375,20 @@ include_once 'db/db.php';
                                 <div class="fact-icon">
                                     <i class="ebook"></i>
                                 </div>
-                                <span>Books<strong class="fact-counter">45780</strong></span>
+
+                                <?php
+                                $select = $pdo->prepare("SELECT count(*) as count_book FROM `kiu_eresource` WHERE is_active = 1 and status = 'published'");
+                                $select->execute();
+                                while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                    extract($row)
+                                    ?>
+
+                                    <span>Books<strong
+                                                class="fact-counter"><?php echo $row['count_book']; ?></strong></span>
+
+                                    <?php
+                                }
+                                ?>
                             </div>
                         </li>
                         <li class="bg-green">
