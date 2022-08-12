@@ -440,9 +440,7 @@ include_once 'db/db.php';
             <div class="filter btn" data-filter=".BMS">BMS</div>
             <div class="filter btn" data-filter=".Nursing">Nursing</div>
             <div class="filter btn" data-filter=".Acupuncture">Acupuncture</div>
-            <div class="filter btn" data-filter=".HR">Human resources</div>
             <div class="filter btn" data-filter=".Marketing">Management</div>
-            <div class="filter btn" data-filter=".Accounting">Accounting</div>
             <div class="filter btn" data-filter=".IT">IT</div>
             <div class="filter btn" data-filter=".Psychology">Psychology</div>
         </div>
