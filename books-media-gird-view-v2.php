@@ -370,9 +370,9 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
 
                             <?php
                             if ($_GET['type'] == 'all')
-                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published'  order by id");
+                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and department like '%" . $_GET['category'] . "%'    order by id");
                             else
-                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department = '" . $_GET['type'] . "'  order by id DESC");
+                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department like '%" . $_GET['category'] . "%' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and status = 'published' and department = '" . $_GET['type'] . "' order by id DESC");
                             $select->execute();
 
                             $txt = 1;
