@@ -1,5 +1,20 @@
 <?php
 include_once 'db/db.php';
+
+
+if (empty($_GET['type'])) {
+    $_GET['type'] = 'all';
+}
+if (empty($_GET['page'])) {
+    $_GET['page'] = '1';
+}
+if (empty($_GET['search'])) {
+    $_GET['search'] = '';
+}
+if (empty($_GET['category']) || $_GET['category'] == 'All') {
+    $_GET['category'] = '';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -143,6 +158,9 @@ include_once 'db/db.php';
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled"
                                        href="index.php">Home</a>
                                 </li>
+                                <li>
+                                    <a href="databases.php">Databases</a>
+                                </li>
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled"
                                        href="books-media-list-view.php?type=all&page=1">E Resources</a>
@@ -259,35 +277,28 @@ include_once 'db/db.php';
                             <div class="container">
                                 <div class="filter-box">
                                     <h3>What are you looking for at the library?</h3>
-                                    <form action="http://libraria.demo.presstigers.com/index.html" method="get">
-                                        <div class="col-md-4 col-sm-6">
+                                    <form action="books-media-gird-view-v2.php?type=all&page=1" method="get">
+                                        <div class="col-md-6 col-sm-6">
                                             <div class="form-group">
-                                                <label class="sr-only" for="keywords">Search by Keyword</label>
-                                                <input class="form-control" placeholder="Search by Keyword"
-                                                       id="keywords" name="keywords" type="text">
+                                                <label class="sr-only" for="keywords">Search by Anything</label>
+                                                <input class="form-control"
+                                                       placeholder="<?php echo ($_GET['search'] == '') ? 'Search by Anything' : $_GET['search']; ?>"
+                                                       id="search"
+                                                       name="search"
+                                                       type="text">
                                             </div>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
-                                            <div class="form-group">
-                                                <select name="catalog" id="catalog" class="form-control">
-                                                    <option>Search the Catalog</option>
-                                                    <option>Catalog 01</option>
-                                                    <option>Catalog 02</option>
-                                                    <option>Catalog 03</option>
-                                                    <option>Catalog 04</option>
-                                                    <option>Catalog 05</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                         <div class="col-md-3 col-sm-6">
                                             <div class="form-group">
                                                 <select name="category" id="category" class="form-control">
-                                                    <option>All Categories</option>
-                                                    <option>Category 01</option>
-                                                    <option>Category 02</option>
-                                                    <option>Category 03</option>
-                                                    <option>Category 04</option>
-                                                    <option>Category 05</option>
+                                                    <option><?php echo ($_GET['category'] == '') ? 'All' : $_GET['category']; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'Nursing') ? 'All' : 'Nursing'; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'BMS') ? 'All' : 'BMS'; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'Management') ? 'All' : 'Management'; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'Acupuncture') ? 'All' : 'Acupuncture'; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'IT') ? 'All' : 'IT'; ?></option>
+                                                    <option><?php echo ($_GET['category'] == 'Psychology') ? 'All' : 'Psychology'; ?></option>
                                                 </select>
                                             </div>
                                         </div>
