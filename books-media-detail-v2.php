@@ -250,10 +250,12 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
 <!-- Start: Page Banner -->
 <section class="page-banner services-banner">
     <div class="container">
+        <br>
+        <br>
+        <br>
         <div class="banner-header">
             <h2>Books & Media Listing</h2>
             <span class="underline center"></span>
-            <p class="lead">Proin ac eros pellentesque dolor pharetra tempo.</p>
         </div>
         <div class="breadcrumb">
             <ul>
@@ -325,7 +327,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                             <div class="detailed-box">
                                 <div class="col-xs-12 col-sm-5 col-md-3">
                                     <div class="post-thumbnail">
-                                        <div class="book-list-icon blue-icon"></div>
+                                        <div class="book-list-icon yellow-icon"></div>
                                         <img style="height: 430px; width: 281px" src="images/upload_files/<?php echo $row['document_image']; ?>"
                                              alt="Book Image">
                                     </div>
