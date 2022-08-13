@@ -1,6 +1,12 @@
 <?php
 include_once 'db/db.php';
 
+session_start();
+if ($_SESSION['username'] == "") {
+    header('location:signin.php');
+} else {
+    include_once 'books-media-list-view.php';
+}
 
 if (empty($_GET['type'])) {
     $_GET['type'] = 'all';
