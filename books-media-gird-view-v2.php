@@ -1,6 +1,13 @@
 <?php
 include_once 'db/db.php';
 
+session_start();
+if ($_SESSION['username'] == "") {
+    header('location:signin.php');
+} else {
+    include_once 'books-media-gird-view-v2.php';
+}
+
 if (empty($_GET['type'])) {
     $_GET['type'] = 'all';
 }
@@ -272,7 +279,9 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label class="sr-only" for="keywords">Search by Anything</label>
-                                        <input class="form-control" placeholder="<?php echo ($_GET['search'] == '') ? 'Search by Anything' : $_GET['search']; ?>" id="search"
+                                        <input class="form-control"
+                                               placeholder="<?php echo ($_GET['search'] == '') ? 'Search by Anything' : $_GET['search']; ?>"
+                                               id="search"
                                                name="search"
                                                type="text">
                                     </div>
@@ -301,7 +310,21 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                         <div class="clear"></div>
                     </section>
                     <!-- End: Search Section -->
-
+                    <div class="filter-options margin-list">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <!--                                        <div class="filter-result">Showing items 1 to 9 of 19 total</div>-->
+                            </div>
+                            <div class="col-md-3 col-sm-3 pull-right">
+                                <div class="filter-toggle">
+                                    <a href="#" class="active"><i class="glyphicon glyphicon-th-large"></i></a>
+                                    <a href="books-media-list-view.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>"
+                                       ><i
+                                                class="glyphicon glyphicon-th-list"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="booksmedia-fullwidth">
                         <ul>
 

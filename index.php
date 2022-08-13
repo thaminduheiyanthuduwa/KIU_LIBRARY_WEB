@@ -71,7 +71,7 @@ include_once 'db/db.php';
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="topbar-links">
-                                        <a href="signin.html"><i class="fa fa-lock"></i>Login</a>
+                                        <a href="signin.php"><i class="fa fa-lock"></i>Login</a>
                                         <span>|</span>
                                         <div class="header-cart dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -91,31 +91,8 @@ include_once 'db/db.php';
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li class="clearfix">
-                                                        <img src="images/header-cart-image-02.jpg" alt="cart item"/>
-                                                        <div class="item-info">
-                                                            <div class="name">
-                                                                <a href="#">The Great Gatsby</a>
-                                                            </div>
-                                                            <div class="author"><strong>Author:</strong> F. Scott
-                                                                Fitzgerald
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <img src="images/header-cart-image-03.jpg" alt="cart item"/>
-                                                        <div class="item-info">
-                                                            <div class="name">
-                                                                <a href="#">The Great Gatsby</a>
-                                                            </div>
-                                                            <div class="author"><strong>Author:</strong> F. Scott
-                                                                Fitzgerald
-                                                            </div>
-                                                            <div class="author"><strong>Author:</strong> F. Scott
-                                                                Fitzgerald
-                                                            </div>
-                                                        </div>
-                                                    </li>
+                                                    <a style="color: #1e1e1e" href="signin.php"><i
+                                                                class="fa fa-lock"></i>Log Out</a>
                                                 </ul>
                                             </div>
                                         </div>

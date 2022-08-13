@@ -1,5 +1,13 @@
 <?php
 include_once 'db/db.php';
+
+session_start();
+if ($_SESSION['username'] == "") {
+    header('location:signin.php');
+} else {
+    include_once 'databases.php';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -151,10 +159,10 @@ include_once 'db/db.php';
                                         <li>
                                             <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=Marketing&page=1">Marketing</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
                                         <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                         </li>
@@ -163,7 +171,8 @@ include_once 'db/db.php';
 
 
                                 <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="library_document.php">Library
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled"
+                                       href="library_document.php">Library
                                         Documents</a>
                                 </li>
                                 <li><a href="services.php">Services</a></li>

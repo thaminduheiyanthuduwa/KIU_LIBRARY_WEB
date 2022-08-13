@@ -2,13 +2,37 @@
 include_once 'db/db.php';
 
 session_start();
-if ($_SESSION['username'] == "") {
-    header('location:signin.php');
-} else {
-    include_once 'library_document.php';
+
+if (isset($_POST['signIn'])) {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+//    $select = $pdo->prepare("select * from tbl_user where username='$username' AND password='$password' ");
+//    $select->execute();
+//    $row = $select->fetch(PDO::FETCH_ASSOC);
+
+    if ('test' == $username and 'test123' == $password) {
+        $_SESSION['user_id'] = '1';
+        $_SESSION['username'] = 'test';
+        $_SESSION['fullname'] = 'test123';
+        $_SESSION['role'] = 'student';
+
+        echo '<script type="text/javascript">';
+        echo ' alert("Welcome to KIU library system !!")';  //not showing an alert box.
+        echo '</script>';
+        header('refresh:2;index.php');
+
+    }
+    else {
+        echo '<script type="text/javascript">';
+        echo ' alert("Wrong User Name or Password. Please try again !!")';  //not showing an alert box.
+        echo '</script>';
+    }
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="zxx">
@@ -44,13 +68,13 @@ if ($_SESSION['username'] == "") {
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
 </head>
+
 
 <body>
 
 <!-- Start: Header Section -->
-<header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
+<header id="header-v1" class="navbar-wrapper">
     <div class="container">
         <div class="row">
             <nav class="navbar navbar-default">
@@ -72,14 +96,14 @@ if ($_SESSION['username'] == "") {
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="topbar-info">
-                                        <a href="tel:+94 11 2741878"><i class="fa fa-phone"></i>+94 11 2741878</a>
+                                        <a href="tel:+94 11 2741878"><i class="fa fa-phone"></i>+94112741878</a>
                                         <span>/</span>
-                                        <a href="mailto:support@libraria.com"><i class="fa fa-envelope"></i>support@libraria.com</a>
+                                        <a href="mailto:libraryc@kiu.ac.lk"><i class="fa fa-envelope"></i>libraryc@kiu.ac.lk</a>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="topbar-links">
-                                        <a href="signin.html"><i class="fa fa-lock"></i>Login</a>
+                                        <a href="signin.php"><i class="fa fa-lock"></i>Login</a>
                                         <span>|</span>
                                         <div class="header-cart dropdown">
                                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -97,45 +121,11 @@ if ($_SESSION['username'] == "") {
                                                             <div class="author"><strong>Author:</strong> F. Scott
                                                                 Fitzgerald
                                                             </div>
-                                                            <div class="price">1 X $10.00</div>
                                                         </div>
-                                                        <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
                                                     </li>
-                                                    <li class="clearfix">
-                                                        <img src="images/header-cart-image-02.jpg" alt="cart item"/>
-                                                        <div class="item-info">
-                                                            <div class="name">
-                                                                <a href="#">The Great Gatsby</a>
-                                                            </div>
-                                                            <div class="author"><strong>Author:</strong> F. Scott
-                                                                Fitzgerald
-                                                            </div>
-                                                            <div class="price">1 X $10.00</div>
-                                                        </div>
-                                                        <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <img src="images/header-cart-image-03.jpg" alt="cart item"/>
-                                                        <div class="item-info">
-                                                            <div class="name">
-                                                                <a href="#">The Great Gatsby</a>
-                                                            </div>
-                                                            <div class="author"><strong>Author:</strong> F. Scott
-                                                                Fitzgerald
-                                                            </div>
-                                                            <div class="price">1 X $10.00</div>
-                                                        </div>
-                                                        <a class="remove" href="#"><i class="fa fa-trash-o"></i></a>
-                                                    </li>
+                                                    <a style="color: #1e1e1e" href="signin.php"><i
+                                                                class="fa fa-lock"></i>Log Out</a>
                                                 </ul>
-                                                <div class="cart-total">
-                                                    <div class="title">SubTotal</div>
-                                                    <div class="price">$30.00</div>
-                                                </div>
-                                                <div class="cart-buttons">
-                                                    <a href="cart.html" class="btn btn-dark-gray">View Cart</a>
-                                                    <a href="checkout.html" class="btn btn-primary">Checkout</a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -144,8 +134,9 @@ if ($_SESSION['username'] == "") {
                         </div>
                         <div class="navbar-collapse hidden-sm hidden-xs">
                             <ul class="nav navbar-nav">
-                                <li class="dropdown">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="index.php">Home</a>
+                                <li class="dropdown active">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled"
+                                       href="index.php">Home</a>
                                 </li>
                                 <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle disabled" href="databases.php">Databases</a>
@@ -159,20 +150,18 @@ if ($_SESSION['username'] == "") {
                                         <li>
                                             <a href="books-media-gird-view-v2.php?type=Acupuncture&page=1">Acupuncture</a>
                                         </li>
-                                        
-                                        <li><a href="books-media-gird-view-v2.php?type=Marketing&page=1">Marketing</a>
+
+                                        <li><a href="books-media-gird-view-v2.php?type=Management&page=1">Management</a>
                                         </li>
-                                        
+
                                         <li><a href="books-media-gird-view-v2.php?type=IT&page=1">IT</a></li>
                                         <li><a href="books-media-gird-view-v2.php?type=Psychology&page=1">Psychology</a>
                                         </li>
                                     </ul>
                                 </li>
-
-
-                                <li class="dropdown active">
-                                    <a data-toggle="dropdown" class="dropdown-toggle disabled" href="library_document.php">Library
-                                        Documents</a>
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" class="dropdown-toggle disabled"
+                                       href="library_document.php">Library Documents</a>
                                 </li>
                                 <li><a href="services.php">Services</a></li>
                                 <li><a href="contact.php">Contact</a></li>
@@ -227,85 +216,78 @@ if ($_SESSION['username'] == "") {
 <!-- Start: Page Banner -->
 <section class="page-banner services-banner">
     <div class="container">
+        <br>
+        <br>
+        <br>
         <div class="banner-header">
-            <br>
-            <br>
-            <br>
-            <h2>Library Documents</h2>
+            <h2>SIGN IN</h2>
             <span class="underline center"></span>
+            <p class="lead">Please log into continue</p>
         </div>
         <div class="breadcrumb">
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li>Documents</li>
+                <li><a href="index-2.html">Home</a></li>
+                <li>Sign In</li>
             </ul>
         </div>
     </div>
 </section>
 <!-- End: Page Banner -->
-
-<!-- Start: Blog Section -->
+<!-- Start: Cart Section -->
 <div id="content" class="site-content">
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-            <div class="blog-main-list">
+            <div class="signin-main">
                 <div class="container">
-                    <div class="row">
-                        <div class="blog-page grid">
-
-                            <?php
-
-                            $select = $pdo->prepare("SELECT * FROM `kiu_edocument` WHERE is_active = 1 and status = 'published'  order by id DESC");
-
-                            $select->execute();
-                            while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
-                                extract($row)
-                                ?>
-
-                                <article>
-                                    <div class="grid-item blog-item">
-                                        <div class="post-thumbnail">
-                                            <div class="post-date-box">
-                                                <div class="post-date">
-                                                    <a class="date" href="#."><?php echo substr($row['display_time'], 8, 2); ?></a>
-                                                </div>
-                                                <div class="post-date-month">
-                                                    <a class="month" href="#."><?php echo substr($row['display_time'], 5, 2); ?></a>
-                                                </div>
+                    <div class="woocommerce">
+                        <div class="woocommerce-login">
+                            <div class="company-info signin-register">
+                                <div class="col-md-5 col-md-offset-1 border-dark-left">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="padding-top: 155px; padding-bottom: 155px"
+                                                 class="company-detail bg-dark margin-left">
+                                                <img src="images/KIU-Logo.png" alt="">
                                             </div>
-                                            <a href="blog-detail.html"><img alt="blog"
-                                                                            src="images/documents/<?php echo $row['cover_photo']; ?>"/></a>
-                                            <div class="post-share">
-                                                <a href="#."><i class="fa fa-comment"></i> 37</a>
-                                                <a href="#."><i class="fa fa-eye"></i> 180</a>
-                                            </div>
-                                        </div>
-                                        <div class="post-detail">
-                                            <header class="entry-header">
-                                                <div class="blog_meta_category">
-                                                    <span class="arrow-right"></span>
-                                                    <a href="#." rel="category tag">DOC</a>,
-<!--                                                    <a href="#." rel="category tag">art</a>-->
-                                                </div>
-                                                <h3 class="entry-title"><a href="blog-detail.html"><?php echo $row['title']; ?></a></h3>
-                                                <div class="entry-meta">
-<!--                                                    <span><i class="fa fa-user"></i> <a href="#">Admin</a></span>-->
-                                                    <span><i class="fa fa-comment"></i> <a
-                                                                href="#">15 Comments</a></span>
-                                                </div>
-                                            </header>
-                                            <div class="entry-content">
-                                                <p><?php echo $row['description']; ?></p>
-                                            </div>
-                                            <footer class="entry-footer">
-                                                <a class="btn btn-default" href="images/documents/<?php echo $row['document']; ?>">Download</a>
-                                            </footer>
                                         </div>
                                     </div>
-                                </article>
-                                <?php
-                            }
-                            ?>
+                                </div>
+                                <div class="col-md-5 border-dark new-user">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="company-detail new-account bg-light margin-right">
+                                                <div class="new-user-head">
+                                                    <h2>SIGN IN</h2>
+                                                    <span class="underline left"></span>
+                                                    <p>If you don't know the logins, please contact the librarian.</p>
+                                                </div>
+                                                <form class="login" method="post">
+                                                    <p class="form-row form-row-first input-required">
+                                                        <label>
+                                                            <span class="first-letter">User Name</span>
+                                                            <span class="second-letter">*</span>
+                                                        </label>
+                                                        <input required="true" type="text" id="username1"
+                                                               name="username" class="input-text">
+                                                    </p>
+                                                    <p class="form-row input-required">
+                                                        <label>
+                                                            <span class="first-letter">Password</span>
+                                                            <span class="second-letter">*</span>
+                                                        </label>
+                                                        <input required="true" type="password" id="password1"
+                                                               name="password" class="input-text">
+                                                    </p>
+                                                    <div class="clear"></div>
+                                                    <input type="submit" value="Sign In" name="signIn"
+                                                           class="button btn btn-default">
+                                                    <div class="clear"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -313,9 +295,7 @@ if ($_SESSION['username'] == "") {
         </main>
     </div>
 </div>
-<!-- End: Blog Section -->
-
-<!-- Start: Social Network -->
+<!-- End: Cart Section -->
 
 <!-- End: Social Network -->
 
@@ -355,7 +335,7 @@ if ($_SESSION['username'] == "") {
                         <span class="underline left"></span>
                         <div class="menu-quick-links-container">
                             <ul id="menu-quick-links" class="menu">
-                                <li><a href="books-media-gird-view-v2.php">KIU E-Resources</a></li>
+                                <li><a href="books-media-gird-view-v2.php?type=all&page=1">KIU E-Resources</a></li>
                                 <li><a href="#">Databases</a></li>
                                 <li><a href="#">Library Documents</a></li>
                                 <li><a href="#">Library Concerns</a></li>
@@ -387,7 +367,7 @@ if ($_SESSION['username'] == "") {
                 <div class="col-md-9 pull-right">
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="books-media-gird-view-v2.php">KIU E-Resources</a></li>
+                        <li><a href="books-media-gird-view-v2.php?type=all&page=1">KIU E-Resources</a></li>
                         <li><a href="#">Databases</a></li>
                         <li><a href="#">Library Documents</a></li>
                         <li><a href="#">Library Concerns</a></li>

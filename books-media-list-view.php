@@ -1,6 +1,13 @@
 <?php
 include_once 'db/db.php';
 
+session_start();
+if ($_SESSION['username'] == "") {
+    header('location:signin.php');
+} else {
+    include_once 'books-media-list-view.php';
+}
+
 if (empty($_GET['type'])) {
     $_GET['type'] = 'all';
 }
@@ -302,15 +309,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                         <div class="col-md-9 col-md-push-3">
                             <div class="filter-options margin-list">
                                 <div class="row">
-                                    <div class="col-md-4 col-sm-4">
-                                        <select name="orderby">
-                                            <option selected="selected">Default sorting</option>
-                                            <option>Sort by popularity</option>
-                                            <option>Sort by rating</option>
-                                            <option>Sort by newness</option>
-                                            <option>Sort by price</option>
-                                        </select>
-                                    </div>
+
                                     <div class="col-md-4 col-sm-4">
 <!--                                        <div class="filter-result">Showing items 1 to 9 of 19 total</div>-->
                                     </div>
@@ -324,6 +323,9 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                     </div>
                                 </div>
                             </div>
+
+                            <br>
+                            <br>
                             <div class="books-list">
 
                                 <?php
