@@ -315,7 +315,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                     </div>
                                     <div class="col-md-3 col-sm-3 pull-right">
                                         <div class="filter-toggle">
-                                            <a href="books-media-gird-view-v2.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>"><i
+                                            <a href="books-media-gird-view-v2.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>&search=<?php echo $_GET['search']; ?>&category=<?php echo $_GET['category']; ?>"><i
                                                         class="glyphicon glyphicon-th-large"></i></a>
                                             <a href="#" class="active"><i
                                                         class="glyphicon glyphicon-th-list"></i></a>
@@ -420,9 +420,9 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                     for ($x = 1; $x <= $dev; $x++) {
 
                                         if ($x == $_GET['page']) {
-                                            echo '<span class="page-numbers current" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
+                                            echo '<span class="page-numbers current" ><a href="books-media-list-view.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
                                         } else {
-                                            echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
+                                            echo '<span class="page-numbers" ><a href="books-media-list-view.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
                                         }
 
                                         ?>
