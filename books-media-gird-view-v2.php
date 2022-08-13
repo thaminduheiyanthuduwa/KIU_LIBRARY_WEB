@@ -370,7 +370,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
 
                             <?php
                             if ($_GET['type'] == 'all')
-                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and department like '%" . $_GET['category'] . "%'    order by id");
+                                $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and department like '%" . $_GET['category'] . "%' order by id");
                             else
                                 $select = $pdo->prepare("SELECT count(*) as count FROM `kiu_eresource` WHERE is_active = 1 and status = 'published' and department like '%" . $_GET['category'] . "%' and (title like '%" . $_GET['search'] . "%' or author like '%" . $_GET['search'] . "%' or description like '%" . $_GET['search'] . "%') and status = 'published' and department = '" . $_GET['type'] . "' order by id DESC");
                             $select->execute();
@@ -390,7 +390,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                 if ($x == $_GET['page']) {
                                     echo '<span class="page-numbers current" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
                                 } else {
-                                    echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '">' . $x . '</a></span>';
+                                    echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '">' . $x . '</a></span>';
                                 }
 
                                 ?>
