@@ -318,7 +318,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                             <div class="col-md-3 col-sm-3 pull-right">
                                 <div class="filter-toggle">
                                     <a href="#" class="active"><i class="glyphicon glyphicon-th-large"></i></a>
-                                    <a href="books-media-list-view.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>"
+                                    <a href="books-media-list-view.php?type=<?php echo $_GET['type']; ?>&page=<?php echo $_GET['page']; ?>&search=<?php echo $_GET['search']; ?>&category=<?php echo $_GET['category']; ?>"
                                        ><i
                                                 class="glyphicon glyphicon-th-list"></i></a>
                                 </div>
