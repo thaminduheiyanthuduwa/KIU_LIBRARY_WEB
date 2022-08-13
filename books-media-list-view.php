@@ -422,7 +422,7 @@ if (empty($_GET['category']) || $_GET['category'] == 'All') {
                                         if ($x == $_GET['page']) {
                                             echo '<span class="page-numbers current" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
                                         } else {
-                                            echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '">' . $x . '</a></span>';
+                                            echo '<span class="page-numbers" ><a href="books-media-gird-view-v2.php?type=' . $_GET['type'] . '&page=' . $x . '&search=' . $_GET['search'] . '&category=' . $_GET['category'] . '">' . $x . '</a></span>';
                                         }
 
                                         ?>
