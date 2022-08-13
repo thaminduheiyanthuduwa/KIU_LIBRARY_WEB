@@ -1,7 +1,10 @@
 <?php
 include_once 'db/db.php';
 
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
 if ($_SESSION['username'] == "") {
     header('location:signin.php');
 } else {
