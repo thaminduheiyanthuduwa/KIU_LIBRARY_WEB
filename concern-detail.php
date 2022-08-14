@@ -340,11 +340,7 @@ if (isset($_SESSION['user_id'])) {
                                                 <li>
                                                     <a class="facebook" target="_blank">
                                                     <span>
-                                                        <?php if ($row['status'] == 1) {
-                                                            echo '<i class="fa fa-check"><h6>Submitted</h6></i>';
-                                                        } else {
-                                                            echo '<i class="fa fa-times"><h6>Submitted</h6></i>';
-                                                        } ?>
+                                                        <i class="fa fa-check"><h6>Submitted</h6></i>
                                                     </span>
                                                     </a>
                                                 </li>
@@ -353,7 +349,7 @@ if (isset($_SESSION['user_id'])) {
                                                     <span>
                                                         <?php if ($row['status'] == 1) {
                                                             echo '<i class="fa fa-spinner"><h6>Head Review</h6></i>';
-                                                        } else if ($row['status'] > 2) {
+                                                        } else if ($row['status'] >= 2) {
                                                             echo '<i class="fa fa-check"><h6>Head Review</h6></i>';
                                                         } else {
                                                             echo '<i class="fa fa-times"><h6>Head Review</h6></i>';
@@ -366,7 +362,7 @@ if (isset($_SESSION['user_id'])) {
                                                     <span>
                                                         <?php if ($row['status'] == 2) {
                                                             echo '<i class="fa fa-spinner"><h6>Accepted for Review</h6></i>';
-                                                        } else if ($row['status'] > 3) {
+                                                        } else if ($row['status'] >= 3) {
                                                             echo '<i class="fa fa-check"><h6>Accepted for Review</h6></i>';
                                                         } else {
                                                             echo '<i class="fa fa-times"><h6>Accepted for Review</h6></i>';
@@ -379,7 +375,7 @@ if (isset($_SESSION['user_id'])) {
                                                     <span>
                                                         <?php if ($row['status'] == 3) {
                                                             echo '<i class="fa fa-spinner"><h6>Library Review</h6></i>';
-                                                        } else if ($row['status'] > 4) {
+                                                        } else if ($row['status'] >= 4) {
                                                             echo '<i class="fa fa-check"><h6>Submitted</h6></i>';
                                                         } else {
                                                             echo '<i class="fa fa-times"><h6>Submitted</h6></i>';
@@ -392,7 +388,7 @@ if (isset($_SESSION['user_id'])) {
                                                     <span>
                                                         <?php if ($row['status'] == 4) {
                                                             echo '<i class="fa fa-spinner"><h6>Submitted</h6></i>';
-                                                        } else if ($row['status'] > 5) {
+                                                        } else if ($row['status'] >= 5) {
                                                             echo '<i class="fa fa-check"><h6>Submitted</h6></i>';
                                                         } else {
                                                             echo '<i class="fa fa-times"><h6>Submitted</h6></i>';
@@ -403,7 +399,7 @@ if (isset($_SESSION['user_id'])) {
                                                 <li>
                                                     <a class="youtube" target="_blank">
                                                     <span>
-                                                        <?php if ($row['status'] == 6) {
+                                                        <?php if ($row['status'] >= 5) {
                                                             echo '<i class="fa fa-check"><h6>All Done</h6></i>';
                                                         } else {
                                                             echo '<i class="fa fa-times"><h6>All Done</h6></i>';
@@ -496,11 +492,8 @@ if (isset($_SESSION['user_id'])) {
                                               action="">
                                             <div class="row">
                                                 <p class="comment-form-author input-required">
-                                                    <label>
-                                                        <span class="first-letter">Name</span>
-                                                        <span class="second-letter">*</span>
-                                                    </label>
-                                                    <input name="author" id="author" type="text">
+                                                    <input value="Name : <?php echo $_SESSION['fullname']; ?>"
+                                                           name="author" id="author" type="text" readonly>
                                                 </p>
                                                 <p class="comment-form-comment">
                                                     <textarea name="comment-input" id="comment"

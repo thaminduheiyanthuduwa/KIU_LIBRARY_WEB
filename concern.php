@@ -17,7 +17,7 @@ if (isset($_SESSION['user_id'])) {
     if (isset($_POST['submit'])) {
 
         $student_id = $_SESSION['user_id'];
-        $concern = $_POST['comment-input'];
+
         $concern_id = '';
         $old_id = 0;
         $status = 1;
@@ -36,7 +36,7 @@ if (isset($_SESSION['user_id'])) {
         $target_dir = "images/concern_doc/";
         $target_dir_head = "images/head_approval/";
         $target_file = $target_dir . date("dmYhis") . basename($_FILES["file"]["name"]);
-        $target_file_head = $target_dir_head . date("dmYhis") . basename($_FILES["file"]["name"]);
+        $target_file_head = $target_dir_head . date("dmYhis") . basename($_FILES["head"]["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
@@ -56,7 +56,7 @@ if (isset($_SESSION['user_id'])) {
         }
         $location = "images/concern_doc/" . $files;
         $head_location = "images/head_approval/" . $head_files;
-        $sqli = "INSERT INTO `concern` (`student_id`, `concern`, `concern_id`, `status`, `file`, `head_approval`) VALUES ('{$student_id}','{$concern}','{$concern_id}','{$status}','{$location}','{$head_location}')";
+        $sqli = "INSERT INTO `concern` (`student_id`, `concern`, `concern_id`, `status`, `file`, `head_approval`) VALUES ('{$student_id}','{$_POST['comment-input']}','{$concern_id}','{$status}','{$location}','{$head_location}')";
         $result = mysqli_query($con, $sqli);
         if ($result) {
             header("Location: my_concern.php");
