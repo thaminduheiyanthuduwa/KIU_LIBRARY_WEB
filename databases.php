@@ -178,6 +178,9 @@ if ($_SESSION['username'] == "") {
                                        href="library_document.php">Library
                                         Documents</a>
                                 </li>
+                                <li>
+                                    <a href="my_concern.php">Concern</a>
+                                </li>
                                 <li><a href="services.php">Services</a></li>
                                 <li><a href="contact.php">Contact</a></li>
                             </ul>
